@@ -20,7 +20,7 @@ signal.signal(signal.SIGINT, signal_handler)
 
 def create_csv_filepath():
     now = datetime.now().strftime("%Y%m%d_%H%M%S")
-    directory = os.path.expanduser("~/LOGS_Pixhawk6c")
+    directory = os.path.expanduser("~/-----")
     os.makedirs(directory, exist_ok=True)
     return os.path.join(directory, f"{now}_RLS_Observer.csv")
 
