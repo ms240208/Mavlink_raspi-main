@@ -94,7 +94,7 @@ params_to_set = {
     'PSC_ACCZ_I': 1.0,       # 垂直加速度制御I
     
     # --- 水平制御PID ---
-    'PSC_POSXY_P': 5.0,      # 水平位置制御P
+    'PSC_POSXY_P': 10.0,      # 水平位置制御P
     'PSC_VELXY_P': 3,      # 水平速度制御P
     'PSC_VELXY_I': 2.5,      # 水平速度制御I
     'PSC_VELXY_D': 0.5,      # 水平速度制御D  増やせるかも
