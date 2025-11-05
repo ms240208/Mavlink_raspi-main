@@ -115,6 +115,7 @@ params_to_set = {
     'OBS_RLS_LAMBDA': 0.99,        # RLS Forgetting Factor (0.9-0.9999)
     'OBS_RLS_COV_INIT': 100.0,     # RLS Initial Covariance (0.001-1000.0)
     'OBS_DIST_FREQ': 0.42,          # Disturbance Frequency [Hz] (0.1-10.0)
+    'OBS_DIST_FREQ': 0.57,          # Disturbance Frequency [Hz] (0.1-10.0)
     'OBS_PRED_TIME': 0.01,         # Prediction Time [seconds] (0.0-0.5)
 
     # --- IMUフィルタ（応答性向上） ---
