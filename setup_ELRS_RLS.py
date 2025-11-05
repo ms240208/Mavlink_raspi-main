@@ -157,7 +157,8 @@ params_to_set = {
     'LOG_BACKEND_TYPE': 1,    # デフォルトのログバックエンド（ファイル）
 
     # # 推力推定に必要な設定
-    'MOT_THST_HOVER': 0.223,    # ホバリングスロットル比
+    # 'MOT_THST_HOVER': 0.223,    # ホバリングスロットル比
+    'MOT_THST_HOVER': 0.18,    # ホバリングスロットル比
     'MOT_THST_EXPO': 0,      # 推力曲線指数
     'MOT_HOVER_LEARN': 0,       # ホバリング学習（0:無効）
 
