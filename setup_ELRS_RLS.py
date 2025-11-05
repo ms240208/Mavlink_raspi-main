@@ -94,7 +94,7 @@ params_to_set = {
     'PSC_ACCZ_I': 1.0,       # 垂直加速度制御I
     
     # --- 水平制御PID ---
-    'PSC_POSXY_P': 20.0,      # 水平位置制御P
+    'PSC_POSXY_P': 25.0,      # 水平位置制御P
     'PSC_VELXY_P': 4.0,      # 水平速度制御P
     'PSC_VELXY_I': 2.5,      # 水平速度制御I
     'PSC_VELXY_D': 0.6,      # 水平速度制御D  増やせるかも
@@ -158,8 +158,8 @@ params_to_set = {
     'LOG_BACKEND_TYPE': 1,    # デフォルトのログバックエンド（ファイル）
 
     # # 推力推定に必要な設定
-    # 'MOT_THST_HOVER': 0.223,    # ホバリングスロットル比
-    'MOT_THST_HOVER': 0.18,    # ホバリングスロットル比
+    'MOT_THST_HOVER': 0.223,    # ホバリングスロットル比
+    # 'MOT_THST_HOVER': 0.18,    # ホバリングスロットル比
     'MOT_THST_EXPO': 0,      # 推力曲線指数
     'MOT_HOVER_LEARN': 0,       # ホバリング学習（0:無効）
 
