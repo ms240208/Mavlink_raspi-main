@@ -95,9 +95,9 @@ params_to_set = {
     
     # --- 水平制御PID ---
     'PSC_POSXY_P': 30.0,      # 水平位置制御P
-    'PSC_VELXY_P': 4.0,      # 水平速度制御P
+    'PSC_VELXY_P': 6.0,      # 水平速度制御P
     'PSC_VELXY_I': 2.5,      # 水平速度制御I
-    'PSC_VELXY_D': 0.6,      # 水平速度制御D  増やせるかも
+    'PSC_VELXY_D': 0.8,      # 水平速度制御D  増やせるかも
     
     # --- 姿勢制御PID ---
     'ATC_RAT_RLL_P': 0.04,  # Roll P
