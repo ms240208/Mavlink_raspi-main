@@ -87,7 +87,7 @@ params_to_set = {
     
     # --- 垂直制御PID ---
     'PSC_POSZ_P': 1,       # 高度位置制御P
-    'PSC_VELZ_P': 4.0,       # 垂直速度制御P
+    'PSC_VELZ_P': 4.00,       # 垂直速度制御P
     'PSC_VELZ_I': 8.0,       # 垂直速度制御I
     'PSC_VELZ_D': 0.01,      # 垂直速度制御D
     'PSC_ACCZ_P': 0.3,       # 垂直加速度制御P
