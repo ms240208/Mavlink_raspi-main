@@ -110,7 +110,7 @@ params_to_set = {
     'ATC_RAT_YAW_I': 0.02,   # Yaw I
 
     # --- Observer設定 (吊荷制御) ---
-    'OBS_CORR_GAIN': 0.005,        # Observer Correction Gain (0.0-1.0) #初めに0にする
+    'OBS_CORR_GAIN': 0.000,        # Observer Correction Gain (0.0-1.0) #初めに0にする
     'OBS_FILT_CUTOFF': 20.0,       # Observer Filter Cutoff Frequency [Hz] (1.0-100.0)
     'OBS_RLS_LAMBDA': 0.99,        # RLS Forgetting Factor (0.9-0.9999)
     'OBS_RLS_COV_INIT': 100.0,     # RLS Initial Covariance (0.001-1000.0)
