@@ -101,20 +101,23 @@ def main():
         print("監視開始… 通信は開始済みです")
 
         print("記録開始するにはエンターキーを押してください。")
-        input()  # ユーザーのエンター入力待ち
-        print("記録を開始します。もう一度エンターで停止します。")
 
         # RLS係数と外力・予測値の記録用キャッシュ
         abcA = abcB = abcC = None
         f_curr = f_pred = None
         pixhawk_time_ms = pred_time_ms = cold_start_progress = None
         record_count = 0
-        recording = True
+        recording = False
 
         import threading
         stop_event = threading.Event()
+        record_event = threading.Event()
+
         def wait_for_enter():
-            input()
+            input()  # 最初のエンターで記録開始
+            print("記録を開始します。もう一度エンターで停止します。")
+            record_event.set()
+            input()  # 2回目のエンターで記録停止
             stop_event.set()
 
         t = threading.Thread(target=wait_for_enter)
@@ -147,16 +150,17 @@ def main():
             elif data["type"] == "cold_start":
                 cold_start_progress = f"{data['progress']}/{data['total']}"
                 pixhawk_time_ms = int(data["pixhawk_time_ms"])
-                # cold start出力
-                ts = datetime.now().strftime("%Y/%m/%d %H:%M:%S.%f")[:-3]
-                row = [ts] + [""]*12 + [pixhawk_time_ms, "", cold_start_progress]
-                writer.writerow(row)
-                csvfile.flush()
-                print(f"{ts} : Cold Start 進捗 {cold_start_progress}")
+                if record_event.is_set():
+                    # cold start出力
+                    ts = datetime.now().strftime("%Y/%m/%d %H:%M:%S.%f")[:-3]
+                    row = [ts] + [""]*12 + [pixhawk_time_ms, "", cold_start_progress]
+                    writer.writerow(row)
+                    csvfile.flush()
+                    print(f"{ts} : Cold Start 進捗 {cold_start_progress}")
                 continue
 
             # 外力・ABC・予測の全て取得揃ったらCSV記録
-            if (f_curr and f_pred and abcA and abcB and abcC):
+            if record_event.is_set() and (f_curr and f_pred and abcA and abcB and abcC):
                 ts = datetime.now().strftime("%Y/%m/%d %H:%M:%S.%f")[:-3]
                 row = [
                     ts,
