@@ -13,6 +13,22 @@ print("接続を待機中...")
 master.wait_heartbeat()
 print(f"接続完了 (システム: {master.target_system}, コンポーネント: {master.target_component})")
 
+
+# --- 振り子長さをここで設定 ---
+import math
+PENDULUM_LENGTH = 0.6  # [m] ここを書き換えて長さを指定
+def calc_pendulum_freq(length_m):
+    g = 9.80665  # 重力加速度[m/s^2]
+    if length_m <= 0:
+        raise ValueError("振り子の長さは正の値を入力してください")
+    return (1/(2*math.pi)) * math.sqrt(g/length_m)
+
+try:
+    obs_dist_freq = round(calc_pendulum_freq(PENDULUM_LENGTH), 4)
+except Exception as e:
+    print(f"振り子長さ設定エラー: {e}。OBS_DIST_FREQ=0.65Hzを使用します。")
+    obs_dist_freq = 0.65
+
 params_to_set = {
     # --- EKF3基本設定 ---
     'AHRS_EKF_TYPE': 3.0,
@@ -114,7 +130,7 @@ params_to_set = {
     'OBS_FILT_CUTOFF': 20.0,       # Observer Filter Cutoff Frequency [Hz] (1.0-100.0)
     'OBS_RLS_LAMBDA': 0.99,        # RLS Forgetting Factor (0.9-0.9999)
     'OBS_RLS_COV_INIT': 100.0,     # RLS Initial Covariance (0.001-1000.0)
-    'OBS_DIST_FREQ': 0.65,          # Disturbance Frequency [Hz] (0.1-10.0)
+    'OBS_DIST_FREQ': obs_dist_freq,          # Disturbance Frequency [Hz] (0.1-10.0)
     'OBS_PRED_TIME': 0.012,         # Prediction Time [seconds] (0.0-0.5)
 
     # --- IMUフィルタ（応答性向上） ---
