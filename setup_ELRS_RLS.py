@@ -122,7 +122,7 @@ params_to_set = {
     'ATC_RAT_PIT_P': 0.05,  # Pitch P
     'ATC_RAT_PIT_I': 0.05,  # Pitch I
     'ATC_RAT_PIT_D': 0.0012, # Pitch D
-    'ATC_RAT_YAW_P': 0.2,    # Yaw P
+    'ATC_RAT_YAW_P': 0.5,    # Yaw P
     'ATC_RAT_YAW_I': 0.02,   # Yaw I
 
     # --- Observer設定 (吊荷制御) ---
