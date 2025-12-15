@@ -132,6 +132,8 @@ params_to_set = {
     'OBS_RLS_COV_INIT': 100.0,     # RLS Initial Covariance (0.001-1000.0)
     'OBS_DIST_FREQ': obs_dist_freq,          # Disturbance Frequency [Hz] (0.1-10.0)
     'OBS_PRED_TIME': 0.00,         # Prediction Time [seconds] (0.0-0.5)
+    'OBS_PHASE_CORR': 1,           # Phase Correction Enable (0:Disabled, 1:Enabled)
+    'OBS_PHASE_THRESH': 10.0,      # Phase Correction Threshold [rad] (0.0-20.0)
 
     # --- IMUフィルタ（応答性向上） ---
     'INS_GYRO_FILTER': 20,   # ジャイロフィルタ（30→20、応答性向上）
