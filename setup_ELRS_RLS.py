@@ -16,7 +16,8 @@ print(f"接続完了 (システム: {master.target_system}, コンポーネン�
 
 # --- 振り子長さをここで設定 ---
 import math
-PENDULUM_LENGTH = 0.74  # [m] ここを書き換えて長さを指定
+PENDULUM_LENGTH = 1.04  # [m] ここを書き換えて長さを指定
+# PENDULUM_LENGTH = 0.74  # [m] ここを書き換えて長さを指定
 def calc_pendulum_freq(length_m):
     g = 9.80665  # 重力加速度[m/s^2]
     if length_m <= 0:
@@ -126,13 +127,13 @@ params_to_set = {
     'ATC_RAT_YAW_I': 0.02,   # Yaw I
 
     # --- Observer設定 (吊荷制御) ---
-    'OBS_CORR_GAIN': 0.00,        # Observer Correction Gain (0.0-1.0) #初めに0にする
+    'OBS_CORR_GAIN': 0.02,        # Observer Correction Gain (0.0-1.0) #初めに0にする
     'OBS_FILT_CUTOFF': 20.0,       # Observer Filter Cutoff Frequency [Hz] (1.0-100.0)
     'OBS_RLS_LAMBDA': 0.99,        # RLS Forgetting Factor (0.9-0.9999)
     'OBS_RLS_COV_INIT': 100.0,     # RLS Initial Covariance (0.001-1000.0)
     'OBS_DIST_FREQ': obs_dist_freq,          # Disturbance Frequency [Hz] (0.1-10.0)
     'OBS_PRED_TIME': 0.00,         # Prediction Time [seconds] (0.0-0.5)
-    'OBS_PHASE_CORR': 1,           # Phase Correction Enable (0:Disabled, 1:Enabled)
+    'OBS_PHASE_CORR': 0,           # Phase Correction Enable (0:Disabled, 1:Enabled)
     'OBS_PHASE_THRESH': 0.001,      # Phase Correction Threshold [rad] (0.0-20.0)
 
     # --- IMUフィルタ（応答性向上） ---
